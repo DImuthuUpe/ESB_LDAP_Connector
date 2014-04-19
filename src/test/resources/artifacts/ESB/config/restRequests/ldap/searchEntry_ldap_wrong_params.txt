@@ -1,0 +1,13 @@
+{
+    "providerUrl":"%s",
+    "securityPrincipal":"%s",
+    "securityCredentials":"%s",
+    "application":"ldap",
+    "operation":"searchEntity",
+    "content":{
+        "dn":"%s",
+        "objectClass":"inetOrgPerson2",
+        "attributes":"mail,uid,givenName",
+        "filters":"uid=testDim"
+    }
+}

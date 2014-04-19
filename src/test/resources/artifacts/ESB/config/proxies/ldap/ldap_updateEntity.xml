@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="ldap_updateEntity" transports="https http"
+       startOnLoad="true"
+       trace="disable">
+    <description/>
+    <target>
+        <inSequence>
+            <property name="application" expression="json-eval($.application)"/>
+            <switch source="get-property('application')">
+                <case regex="ldap">
+                    <property name="operation" expression="json-eval($.operation)"/>
+                    <switch source="get-property('operation')">
+                        <case regex="updateEntity">
+                            <property name="NO_ENTITY_BODY" scope="axis2" action="remove"/>
+                            <property name="messageType" value="application/json" scope="axis2"/>
+                            <property name="mode" expression="json-eval($.content.mode)"/>
+                            <property name="dn" expression="json-eval($.content.dn)"/>
+                            <property name="attributes" expression="json-eval($.content.attributes)"/>
+                            <log level="full"/>
+                            <ldapConnector.init>
+                                <providerUrl>ldap://192.168.1.164:389/</providerUrl>
+                                <securityPrincipal>cn=admin,dc=wso2,dc=com</securityPrincipal>
+                                <securityCredentials>comadmin</securityCredentials>
+                            </ldapConnector.init>
+                            <ldapConnector.updateEntry>
+                                <mode>{get-property('mode')}</mode>
+                                <dn>{get-property('dn')}</dn>
+                                <attributes>{get-property('attributes')}</attributes>
+                            </ldapConnector.updateEntry>
+                            <respond/>
+                        </case>
+                    </switch>
+                </case>
+            </switch>
+        </inSequence>
+        <faultSequence/>
+    </target>
+</proxy>

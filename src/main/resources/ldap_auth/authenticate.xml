@@ -1,0 +1,16 @@
+<template xmlns="http://ws.apache.org/ns/synapse" name="authenticate">
+	<parameter name="dn"
+		description="username of the user used to log in to LDAP." />
+	<parameter name="password"
+		description="password of the user used to log in to LDAP." />
+
+
+	<sequence>
+
+		<log level="custom">
+			<property name="dn" expression="$func:dn" />
+			<property name="password" expression="$func:password" />
+		</log>
+		<class name="org.wso2.carbon.connector.ldap.Authenticate" />
+	</sequence>
+</template>

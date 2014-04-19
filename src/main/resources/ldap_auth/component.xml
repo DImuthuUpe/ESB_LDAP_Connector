@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="ldap_auth" type="synapse/template" >
+    <subComponents>
+        <component name="authenticate">
+            <file>authenticate.xml</file>
+            <description>This does authentication of a given user</description>
+        </component>
+    </subComponents>
+</component>

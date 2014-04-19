@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="http://ws.apache.org/ns/synapse" name="updateEntry">
+	<parameter name="attributes" />
+	<parameter name="dn" />
+	<parameter name="mode" />
+	<sequence>
+		<log level="custom">
+			<property name="attributes" expression="$func:attributes" />
+			<property name="dn" expression="$func:dn" />
+			<property name="mode" expression="$func:mode" />
+		</log>
+		<class name="org.wso2.carbon.connector.ldap.UpdateEntry" />
+	</sequence>
+</template>

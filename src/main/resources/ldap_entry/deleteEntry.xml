@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="http://ws.apache.org/ns/synapse" name="deleteEntry">
+	<parameter name="dn" />
+	<sequence>
+		<log level="custom">
+			<property name="dn" expression="$func:dn" />
+		</log>
+		<class name="org.wso2.carbon.connector.ldap.DeleteEntry" />
+	</sequence>
+</template>

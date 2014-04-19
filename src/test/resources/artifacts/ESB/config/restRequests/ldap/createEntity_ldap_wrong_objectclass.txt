@@ -1,0 +1,12 @@
+{
+    "providerUrl":"%s",
+    "securityPrincipal":"%s",
+    "securityCredentials":"%s",
+    "application": "ldap",
+    "operation":"createEntity",
+    "content":{
+        "objectClass": "wrongObjectClass",
+        "dn":"uid=%s,%s",
+        "attributes":"mail=testDim20@wso2.com,userPassword=123,sn=dim,cn=dim"
+    }
+}

@@ -1,0 +1,19 @@
+<template xmlns="http://ws.apache.org/ns/synapse" name="init">
+
+	<parameter name="providerUrl" description="URI of the LDAP directory." />
+	<parameter name="securityPrincipal"
+		description="username of the user used to log in to LDAP." />
+	<parameter name="securityCredentials"
+		description="password of the user used to log in to LDAP." />
+
+
+	<sequence>
+
+		<log level="custom">
+			<property name="providerUrl" expression="$func:providerUrl" />
+			<property name="securityPrincipal" expression="$func:securityPrincipal" />
+			<property name="securityCredentials" expression="$func:securityCredentials" />
+		</log>
+		<class name="org.wso2.carbon.connector.ldap.Init" />
+	</sequence>
+</template>

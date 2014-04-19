@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<connector>
+    <component name="ldapConnector" package="org.wso2.carbon.connector" >
+        <dependency component="ldap_entry"/>
+        <dependency component="ldap_config"/>
+        <dependency component="ldap_auth"/>
+        <description>LDAP connector for WSO2 ESB</description>
+    </component>
+</connector>

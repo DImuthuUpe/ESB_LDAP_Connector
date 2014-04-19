@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="ldap_config" type="synapse/template" >
+    <subComponents>
+        <component name="init">
+            <file>init.xml</file>
+            <description>This does initialization part</description>
+        </component>
+    </subComponents>
+</component>

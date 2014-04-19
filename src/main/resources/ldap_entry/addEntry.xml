@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="http://ws.apache.org/ns/synapse" name="addEntry">
+	<parameter name="objectClass" />
+	<parameter name="attributes" />
+	<parameter name="dn" />
+	<sequence>
+		<log level="custom">
+			<property name="objectClass" expression="$func:objectClass" />
+			<property name="attributes" expression="$func:attributes" />
+			<property name="dn" expression="$func:dn" />
+		</log>
+		<class name="org.wso2.carbon.connector.ldap.AddEntry" />
+	</sequence>
+</template>
